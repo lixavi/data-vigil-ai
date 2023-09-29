@@ -1,0 +1,11 @@
+--- # My first yml playbook file
+- hosts: developers
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks: 
+      - name: UnInstalling nginx
+        action: apt name=nginx state=absent
+       
+      - name: installing nginx
+        action: apt name=nginx state=present

@@ -1,0 +1,14 @@
+--- # Constional Playbook
+
+- hosts: developers
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks: 
+     - name: install apache2 on ubuntu
+       command: apt-get install apache2 -y 
+       when: ansible_os_family == "Debian"
+
+     - name: install apache2 on linux
+       command: yum install httpd -y 
+       when: ansible_os_family == "RedHat"

@@ -1,0 +1,8 @@
+---
+ - name: My first playbook
+   hosts: webserver1,webserver2
+   tasks:
+     - name: "created a dummy file"
+       command: touch /home/ubuntu/awab.txt
+     - name: "copy from source to destination"
+       copy: src=playbook1.yml dest=/home/ubuntu/

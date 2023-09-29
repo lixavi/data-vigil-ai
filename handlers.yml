@@ -1,0 +1,12 @@
+--- # PLaybook handlers
+- hosts: developers
+  user: ansible
+  become: true
+  connection: ssh
+  tasks: 
+    - name: instaling nginx on ubuntu
+      action: apt name=nginx state=present
+      notify: restart nginx
+  handlers: 
+    - name: restart nginx
+      action: service name=nginx state=stop

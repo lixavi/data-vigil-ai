@@ -1,0 +1,13 @@
+---
+- hosts: developers
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks: 
+     - name: Add list of users in my nodes
+       user: name='{{item}}' state=present
+       with_items:
+          - awab
+          - ahmed
+          - taha
+
