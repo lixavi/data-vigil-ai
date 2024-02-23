@@ -1,6 +1,3 @@
-## Data Vigil AI
-Anomaly detection in data using Isolation Forest and DBSCAN clustering algorithms for identifying unusual data points.
-
 # DataVigilAI: Anomaly Detection in Data
 
 DataVigilAI is a Python-based project aimed at detecting anomalies in data using Isolation Forest and DBSCAN clustering algorithms. Anomalies, also known as outliers, are data points that deviate significantly from the normal behavior of the dataset and may indicate errors, fraud, or rare events.
