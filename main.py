@@ -1,24 +1,20 @@
-from data_loader import load_data
-from anomaly_detector import AnomalyDetector
-from visualization import visualize_data, visualize_anomalies
-from evaluation import evaluate_detection
+from data_preprocessing import preprocess_data
+from isolation_forest_anomaly_detection import detect_anomalies_with_isolation_forest
+from dbscan_clustering_anomaly_detection import detect_anomalies_with_dbscan
+from visualization import visualize_anomalies
 
 def main():
-    # Load data
-    data = load_data()
+    # Step 1: Preprocess the data
+    preprocessed_data = preprocess_data('data.csv')
 
-    # Initialize anomaly detector
-    detector = AnomalyDetector()
+    # Step 2: Detect anomalies using Isolation Forest algorithm
+    isolation_forest_anomalies = detect_anomalies_with_isolation_forest(preprocessed_data)
 
-    # Detect anomalies
-    anomalies = detector.detect_anomalies(data)
+    # Step 3: Detect anomalies using DBSCAN clustering algorithm
+    dbscan_anomalies = detect_anomalies_with_dbscan(preprocessed_data)
 
-    # Visualize data and anomalies
-    visualize_data(data)
-    visualize_anomalies(data, anomalies)
-
-    # Evaluate detection performance
-    evaluate_detection(data, anomalies)
+    # Step 4: Visualize the detected anomalies
+    visualize_anomalies(preprocessed_data, isolation_forest_anomalies, dbscan_anomalies)
 
 if __name__ == "__main__":
     main()
